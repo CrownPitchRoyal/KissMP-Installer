@@ -29,6 +29,7 @@ namespace KissMP_Updater
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.btn1SelectUserFolder = new System.Windows.Forms.Button();
             this.l1PathLabelUF = new System.Windows.Forms.Label();
             this.btnContinue = new System.Windows.Forms.Button();
@@ -299,6 +300,7 @@ namespace KissMP_Updater
             // 
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pictureBox1.Image = global::KissMP_Updater.Properties.Resources.kissMpLogo;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(364, 125);
@@ -421,6 +423,7 @@ namespace KissMP_Updater
             this.Controls.Add(this.gbStage1);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "KissMP Installer [Unofficial]";
             this.gbStage2.ResumeLayout(false);

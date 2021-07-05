@@ -29,6 +29,7 @@ namespace KissMP_Updater
 
         public string GameExePath = "";
 
+        public bool done = false;
 
         public Form1()
         {
@@ -133,6 +134,22 @@ namespace KissMP_Updater
         {
             try
             {
+                if (stage == 2)
+                {
+                    gbStage2.Visible = false;
+                    gbStage3.Visible = true;
+                    gbStage3.Dock = DockStyle.Fill;
+
+                    btnCancel.Enabled = false;
+                    btnContinue.Text = "Exit";
+                    btnContinue.Enabled = true;
+
+                    if (done == false)
+                    {
+                        Application.Exit();
+                    }
+                    done = false;
+                }
                 if (stage == 0)
                 {
                     if (Directory.Exists(UserFolderPath + "\\mods"))
@@ -150,22 +167,11 @@ namespace KissMP_Updater
                 }
                 else if (stage == 1)
                 {
-                    //DISPLAY NEXT stage elements
-                    gbStage2.Visible = true;
-                    gbStage2.Dock = DockStyle.Fill;
-                    btnBack.Enabled = true;
-                    btnContinue.Text = "Install";
-
-                    //Hide prev stage
-                    gbStage1.Visible = false;
-
-                    //INSTALATION
-                    btnBack.Enabled = false;
-                    btnContinue.Enabled = false;
-                    Install();//Downloads and extracts
-
-                    btnContinue.Enabled = true;
-                    btnContinue.Text = "Finish";
+                    //if (callType)
+                    //{
+                    //    callType = false;
+                    //    return;
+                    //}
 
                     if (((Control)sender).Name == "btnBack")
                     {
@@ -177,11 +183,24 @@ namespace KissMP_Updater
                     }
                     else if (((Control)sender).Name == "btnContinue")
                     {
-                        gbStage2.Visible = false;
-                        gbStage3.Visible = true;
-                        gbStage3.Dock = DockStyle.Fill;
+                        //Hide prev stage
+                        gbStage1.Visible = false;
 
+                        //DISPLAY NEXT stage elements
+                        gbStage2.Visible = true;
+                        gbStage2.Dock = DockStyle.Fill;
+                        btnBack.Enabled = true;
+                        btnContinue.Text = "Install";
 
+                        //INSTALATION
+                        btnBack.Enabled = false;
+                        btnContinue.Enabled = false;
+                        Install();//Downloads and extracts
+
+                        btnContinue.Enabled = true;
+                        btnContinue.Text = "Finish";
+
+                        done = true;
                         stage = 2;
                     }
                 }
@@ -395,12 +414,22 @@ namespace KissMP_Updater
                         pb2ProgressBar.Value = 40;
 
 
-                        rtb2ProgressText.Text += "\nDownloading icon...";
-                        pb2ProgressBar.Value = 44;
-                        WebClient webClient2 = new WebClient();
-                        webClient2.DownloadFile("https://crownpitchroyal.com/bridge.ico", BridgeInstallDir + "\\bridge.ico");
-                        rtb2ProgressText.Text += "\nCopying bridge.ico to " + BridgeInstallDir;
-                        pb2ProgressBar.Value = 48;
+                        
+
+                        try
+                        {
+                            rtb2ProgressText.Text += "\nDownloading icon...";
+                            pb2ProgressBar.Value = 44;
+                            WebClient webClient2 = new WebClient();
+                            webClient2.DownloadFile("https://crownpitchroyal.com/bridge.ico", BridgeInstallDir + "\\bridge.ico");
+                            rtb2ProgressText.Text += "\nCopying bridge.ico to " + BridgeInstallDir;
+                            pb2ProgressBar.Value = 48;
+                        }
+                        catch (Exception)
+                        {
+                            rtb2ProgressText.Text += "\nERROR downloading icon, skipping...";
+                        }
+                        
 
 
                         if (File.Exists(BridgeInstallDir + "\\KissMP.bat"))
