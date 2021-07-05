@@ -56,6 +56,7 @@ namespace KissMP_Updater
             //Clear names so user doesn't see them
             gbStage1.Text = "";
             gbStage2.Text = "";
+            gbStage3.Text = "";
 
             //If stage 0 we display stage1
             if (stage == 0)
@@ -101,7 +102,7 @@ namespace KissMP_Updater
 
                     if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
                     {
-                        BridgeInstallDir = fbd.SelectedPath;
+                        BridgeInstallDir = fbd.SelectedPath + "\\BridgeKissMP";
                         l1PathBR.Text = BridgeInstallDir;
                     }
                 }
@@ -158,11 +159,13 @@ namespace KissMP_Updater
                     //Hide prev stage
                     gbStage1.Visible = false;
 
-                    if (callType)
-                    {
-                        callType = false;
-                        return;
-                    }
+                    //INSTALATION
+                    btnBack.Enabled = false;
+                    btnContinue.Enabled = false;
+                    Install();//Downloads and extracts
+
+                    btnContinue.Enabled = true;
+                    btnContinue.Text = "Finish";
 
                     if (((Control)sender).Name == "btnBack")
                     {
@@ -174,13 +177,9 @@ namespace KissMP_Updater
                     }
                     else if (((Control)sender).Name == "btnContinue")
                     {
-                        btnBack.Enabled = false;
-
-                        Install();//Downloads and extracts
-
-
-                        //rtb2ProgressText.Text = "stage\n 2";
-                        //pb2ProgressBar.Value = 50;
+                        gbStage2.Visible = false;
+                        gbStage3.Visible = true;
+                        gbStage3.Dock = DockStyle.Fill;
 
 
                         stage = 2;
@@ -421,9 +420,35 @@ namespace KissMP_Updater
                                 {
                                     writer.WriteLine(@"start """" " + tbNotSteam.Text);
                                 }
+                                else
+                                {
+                                    MessageBox.Show("Game Installation directory not valid. Game launch excluded from startup script.");
+                                }
                             }
-                            writer.WriteLine(@"start """" C:\Users\janyr\AppData\Roaming\BridgeKissMP\kissmp-bridge.exe");
+                            writer.WriteLine(@"start """" " + BridgeInstallDir);
                         }
+
+                        //DELETE Extracted files
+                        if (Directory.Exists(BridgeInstallDir))
+                        {
+                            string tempFolder = "";
+                            string[] list4 = Directory.GetDirectories(BridgeInstallDir);
+                            foreach (var item in list4)
+                            {
+                                if (item.Contains("KissMP"))
+                                {
+                                    tempFolder = item;
+                                }
+                            }
+                            if (Directory.Exists(tempFolder))
+                            {
+                                Directory.Delete(tempFolder, true);
+                                rtb2ProgressText.Text += "\nRemoved temp files...";
+                                pb2ProgressBar.Value = 54;
+                            }
+                        }
+
+
 
                         //Make shortcut if checked
                         if (cbShortDesktop.Checked) { rtb2ProgressText.Text += "\nCreated Desktop Shortcut"; CreateShortcut(0); }
@@ -584,6 +609,31 @@ namespace KissMP_Updater
                 }
             }
             catch (Exception err) { EH(err); }
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start("https://kissmp.online/");
+        }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start("https://discord.com/invite/ANPsDkeVVF");
+        }
+
+        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start("https://github.com/TheHellBox/KISS-multiplayer/");
+        }
+
+        private void linkLabel4_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start("https://www.patreon.com/TheHellBox");
+        }
+
+        private void linkLabel5_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start("https://kissmp.online/docs/");
         }
     }
 }

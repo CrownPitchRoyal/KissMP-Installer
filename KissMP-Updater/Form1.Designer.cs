@@ -50,10 +50,20 @@ namespace KissMP_Updater
             this.l1PathUF = new System.Windows.Forms.TextBox();
             this.gbControls = new System.Windows.Forms.GroupBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.gbStage3 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
+            this.linkLabel3 = new System.Windows.Forms.LinkLabel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.linkLabel4 = new System.Windows.Forms.LinkLabel();
+            this.linkLabel5 = new System.Windows.Forms.LinkLabel();
             this.gbStage2.SuspendLayout();
             this.gbStage1.SuspendLayout();
             this.gbControls.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.gbStage3.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn1SelectUserFolder
@@ -137,7 +147,7 @@ namespace KissMP_Updater
             // 
             this.gbStage2.Controls.Add(this.pb2ProgressBar);
             this.gbStage2.Controls.Add(this.rtb2ProgressText);
-            this.gbStage2.Location = new System.Drawing.Point(13, 495);
+            this.gbStage2.Location = new System.Drawing.Point(202, 492);
             this.gbStage2.Name = "gbStage2";
             this.gbStage2.Size = new System.Drawing.Size(313, 201);
             this.gbStage2.TabIndex = 11;
@@ -159,7 +169,7 @@ namespace KissMP_Updater
             this.gbStage1.Controls.Add(this.l1PathUF);
             this.gbStage1.Controls.Add(this.btn1SelectUserFolder);
             this.gbStage1.Controls.Add(this.l1PathLabelUF);
-            this.gbStage1.Location = new System.Drawing.Point(13, 131);
+            this.gbStage1.Location = new System.Drawing.Point(269, 463);
             this.gbStage1.Name = "gbStage1";
             this.gbStage1.Size = new System.Drawing.Size(312, 344);
             this.gbStage1.TabIndex = 12;
@@ -289,7 +299,6 @@ namespace KissMP_Updater
             // 
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pictureBox1.Image = global::KissMP_Updater.Properties.Resources.kissMpLogo;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(364, 125);
@@ -298,11 +307,115 @@ namespace KissMP_Updater
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
+            // gbStage3
+            // 
+            this.gbStage3.Controls.Add(this.linkLabel5);
+            this.gbStage3.Controls.Add(this.linkLabel4);
+            this.gbStage3.Controls.Add(this.label3);
+            this.gbStage3.Controls.Add(this.label2);
+            this.gbStage3.Controls.Add(this.linkLabel3);
+            this.gbStage3.Controls.Add(this.linkLabel2);
+            this.gbStage3.Controls.Add(this.linkLabel1);
+            this.gbStage3.Controls.Add(this.label1);
+            this.gbStage3.Location = new System.Drawing.Point(66, 159);
+            this.gbStage3.Name = "gbStage3";
+            this.gbStage3.Size = new System.Drawing.Size(287, 245);
+            this.gbStage3.TabIndex = 14;
+            this.gbStage3.TabStop = false;
+            this.gbStage3.Text = "stage3";
+            this.gbStage3.Visible = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.Location = new System.Drawing.Point(19, 25);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(219, 18);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Thank you for installing KissMP.";
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(31, 91);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(84, 13);
+            this.linkLabel1.TabIndex = 1;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "KissMP Website";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
+            // linkLabel2
+            // 
+            this.linkLabel2.AutoSize = true;
+            this.linkLabel2.Location = new System.Drawing.Point(31, 116);
+            this.linkLabel2.Name = "linkLabel2";
+            this.linkLabel2.Size = new System.Drawing.Size(81, 13);
+            this.linkLabel2.TabIndex = 2;
+            this.linkLabel2.TabStop = true;
+            this.linkLabel2.Text = "KissMP Discord";
+            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
+            // 
+            // linkLabel3
+            // 
+            this.linkLabel3.AutoSize = true;
+            this.linkLabel3.Location = new System.Drawing.Point(31, 141);
+            this.linkLabel3.Name = "linkLabel3";
+            this.linkLabel3.Size = new System.Drawing.Size(78, 13);
+            this.linkLabel3.TabIndex = 3;
+            this.linkLabel3.TabStop = true;
+            this.linkLabel3.Text = "KissMP GitHub";
+            this.linkLabel3.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel3_LinkClicked);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label2.Location = new System.Drawing.Point(23, 64);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(232, 16);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "bridge via the shortcut on the desktop.";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label3.Location = new System.Drawing.Point(23, 45);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(214, 16);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "You can now launch the game and ";
+            // 
+            // linkLabel4
+            // 
+            this.linkLabel4.AutoSize = true;
+            this.linkLabel4.Location = new System.Drawing.Point(31, 166);
+            this.linkLabel4.Name = "linkLabel4";
+            this.linkLabel4.Size = new System.Drawing.Size(146, 13);
+            this.linkLabel4.TabIndex = 6;
+            this.linkLabel4.TabStop = true;
+            this.linkLabel4.Text = "Support KissMP development";
+            this.linkLabel4.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel4_LinkClicked);
+            // 
+            // linkLabel5
+            // 
+            this.linkLabel5.AutoSize = true;
+            this.linkLabel5.Location = new System.Drawing.Point(31, 191);
+            this.linkLabel5.Name = "linkLabel5";
+            this.linkLabel5.Size = new System.Drawing.Size(79, 13);
+            this.linkLabel5.TabIndex = 7;
+            this.linkLabel5.TabStop = true;
+            this.linkLabel5.Text = "Documentation";
+            this.linkLabel5.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel5_LinkClicked);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(364, 581);
+            this.Controls.Add(this.gbStage3);
             this.Controls.Add(this.gbControls);
             this.Controls.Add(this.gbStage2);
             this.Controls.Add(this.gbStage1);
@@ -315,6 +428,8 @@ namespace KissMP_Updater
             this.gbStage1.PerformLayout();
             this.gbControls.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.gbStage3.ResumeLayout(false);
+            this.gbStage3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -342,6 +457,15 @@ namespace KissMP_Updater
         private System.Windows.Forms.Label lNotSteam;
         private System.Windows.Forms.TextBox tbNotSteam;
         private System.Windows.Forms.CheckBox cbSteam;
+        private System.Windows.Forms.GroupBox gbStage3;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.LinkLabel linkLabel3;
+        private System.Windows.Forms.LinkLabel linkLabel2;
+        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.LinkLabel linkLabel4;
+        private System.Windows.Forms.LinkLabel linkLabel5;
     }
 }
 
