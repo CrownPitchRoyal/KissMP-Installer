@@ -85,7 +85,9 @@ namespace KissMP_Updater
                     if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
                     {
                         UserFolderPath = fbd.SelectedPath;
+                        BridgeInstallDir = UserFolderPath + "\\BridgeKissMP";
                         l1PathUF.Text = UserFolderPath;
+                        l1PathBR.Text = BridgeInstallDir;
                     }
                 }
             }
