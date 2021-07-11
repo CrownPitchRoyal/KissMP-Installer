@@ -6,3 +6,4 @@ TODO:
  - Mid-installation cancelation rollback(backup files that are to be replaced and restore them in case the user decides to cancel installation)
  - Detect if installer files exist from previous installations and display a menu with options such as: Repair/reinstall, Uninstall,...?
  - Check for registery entries https://discord.com/channels/770228946276450334/770228946905071650/863508184454397963
+ - Pack all files into single exe / Costura.Fody / LibZ?
