@@ -1,4 +1,5 @@
-﻿using RestSharp;
+﻿using Microsoft.Win32;
+using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,7 +17,7 @@ using System.Windows.Forms;
 
 namespace KissMP_Updater
 {
-    public partial class Form1 : Form
+    public partial class FMain : Form
     {
         public string UserFolderPath = "";
         public bool UserFolderValid = false;
@@ -31,7 +32,7 @@ namespace KissMP_Updater
 
         public bool done = false;
 
-        public Form1()
+        public FMain()
         {
             InitializeComponent();
 
@@ -58,6 +59,7 @@ namespace KissMP_Updater
             gbStage1.Text = "";
             gbStage2.Text = "";
             gbStage3.Text = "";
+            gbStage0.Text = "";
 
             //If stage 0 we display stage1
             if (stage == 0)
@@ -67,9 +69,29 @@ namespace KissMP_Updater
                 gbStage1.Dock = DockStyle.Fill;
 
                 //Suggest install in AppData Roaming folder
+                //Bridge
                 l1PathBR.Text = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\BridgeKissMP";
+                //Mod
                 //l1PathUF.Text = @"D:\SteamLibrary\steamapps\common\BeamUserFolder\0.23";
-                l1PathUF.Text = @"...\BeamUserFolder\0.23";
+                //l1PathUF.Text = @"...\BeamUserFolder\0.23";
+                //Get reg
+
+
+
+                try
+                {
+                    RegistryKey myKey = Registry.CurrentUser.OpenSubKey(@"Software\BeamNG\BeamNG.drive", false);
+                    String value = (String)myKey.GetValue("userpath_override");
+                    if (!String.IsNullOrEmpty(value))//IF entry exists the path was modified and is different from appdata/local
+                    {
+                        l1PathUF.Text = value;
+                    }
+                    else //Else path unmodified and is in appdata/local
+                    {
+                        l1PathUF.Text = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\BeamNG.drive\";
+                    }
+                }
+                catch (Exception err) { EH(err); }
             }
         }
 

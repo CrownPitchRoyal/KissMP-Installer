@@ -1,7 +1,7 @@
 ﻿
 namespace KissMP_Updater
 {
-    partial class Form1
+    partial class FMain
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace KissMP_Updater
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FMain));
             this.btn1SelectUserFolder = new System.Windows.Forms.Button();
             this.l1PathLabelUF = new System.Windows.Forms.Label();
             this.btnContinue = new System.Windows.Forms.Button();
@@ -60,6 +60,7 @@ namespace KissMP_Updater
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.label1 = new System.Windows.Forms.Label();
+            this.gbStage0 = new System.Windows.Forms.GroupBox();
             this.gbStage2.SuspendLayout();
             this.gbStage1.SuspendLayout();
             this.gbControls.SuspendLayout();
@@ -148,7 +149,7 @@ namespace KissMP_Updater
             // 
             this.gbStage2.Controls.Add(this.pb2ProgressBar);
             this.gbStage2.Controls.Add(this.rtb2ProgressText);
-            this.gbStage2.Location = new System.Drawing.Point(202, 492);
+            this.gbStage2.Location = new System.Drawing.Point(211, 494);
             this.gbStage2.Name = "gbStage2";
             this.gbStage2.Size = new System.Drawing.Size(313, 201);
             this.gbStage2.TabIndex = 11;
@@ -170,7 +171,7 @@ namespace KissMP_Updater
             this.gbStage1.Controls.Add(this.l1PathUF);
             this.gbStage1.Controls.Add(this.btn1SelectUserFolder);
             this.gbStage1.Controls.Add(this.l1PathLabelUF);
-            this.gbStage1.Location = new System.Drawing.Point(13, 242);
+            this.gbStage1.Location = new System.Drawing.Point(28, 144);
             this.gbStage1.Name = "gbStage1";
             this.gbStage1.Size = new System.Drawing.Size(312, 344);
             this.gbStage1.TabIndex = 12;
@@ -319,7 +320,7 @@ namespace KissMP_Updater
             this.gbStage3.Controls.Add(this.linkLabel2);
             this.gbStage3.Controls.Add(this.linkLabel1);
             this.gbStage3.Controls.Add(this.label1);
-            this.gbStage3.Location = new System.Drawing.Point(66, 159);
+            this.gbStage3.Location = new System.Drawing.Point(269, 489);
             this.gbStage3.Name = "gbStage3";
             this.gbStage3.Size = new System.Drawing.Size(287, 245);
             this.gbStage3.TabIndex = 14;
@@ -412,11 +413,22 @@ namespace KissMP_Updater
             this.label1.TabIndex = 0;
             this.label1.Text = "Thank you for installing KissMP.";
             // 
-            // Form1
+            // gbStage0
+            // 
+            this.gbStage0.Location = new System.Drawing.Point(317, 475);
+            this.gbStage0.Name = "gbStage0";
+            this.gbStage0.Size = new System.Drawing.Size(200, 100);
+            this.gbStage0.TabIndex = 15;
+            this.gbStage0.TabStop = false;
+            this.gbStage0.Text = "stage 0";
+            this.gbStage0.Visible = false;
+            // 
+            // MForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(364, 581);
+            this.Controls.Add(this.gbStage0);
             this.Controls.Add(this.gbStage3);
             this.Controls.Add(this.gbControls);
             this.Controls.Add(this.gbStage2);
@@ -424,7 +436,7 @@ namespace KissMP_Updater
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Form1";
+            this.Name = "MForm";
             this.Text = "KissMP Installer [Unofficial]";
             this.gbStage2.ResumeLayout(false);
             this.gbStage1.ResumeLayout(false);
@@ -469,6 +481,7 @@ namespace KissMP_Updater
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.LinkLabel linkLabel4;
         private System.Windows.Forms.LinkLabel linkLabel5;
+        private System.Windows.Forms.GroupBox gbStage0;
     }
 }
 
