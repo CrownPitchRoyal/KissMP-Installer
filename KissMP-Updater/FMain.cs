@@ -81,10 +81,13 @@ namespace KissMP_Updater
                 try
                 {
                     RegistryKey myKey = Registry.CurrentUser.OpenSubKey(@"Software\BeamNG\BeamNG.drive", false);
-                    String value = (String)myKey.GetValue("userpath_override");
-                    if (!String.IsNullOrEmpty(value))//IF entry exists the path was modified and is different from appdata/local
+                    if (myKey != null) //if key has no value don't check for it
                     {
-                        l1PathUF.Text = value;
+                        String value = (String)myKey.GetValue("userpath_override");
+                        if (!String.IsNullOrEmpty(value))//IF entry exists the path was modified and is different from appdata/local
+                        {
+                            l1PathUF.Text = value;
+                        }
                     }
                     else //Else path unmodified and is in appdata/local
                     {
@@ -463,6 +466,8 @@ namespace KissMP_Updater
                         //Makes a simple bat file that runs the bridge and game via steam
                         using (StreamWriter writer = new StreamWriter(BridgeInstallDir + "\\KissMP.bat"))
                         {
+                            writer.WriteLine("chcp 65001");
+
                             if (cbSteam.Checked)
                             {
                                 writer.WriteLine(@"start """" steam://rungameid/284160\");
